@@ -152,17 +152,21 @@
 
         var sc = "*@$~!.123456789"
         var i = chicagoStartups.length;
+        var counter = 0;
+
         for(var x = 0; x < i; x ++){
 
             for (var y = 0; y < sc.length; y++){
                 while(chicagoStartups[x].includes(sc[y])){
                     chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
                 }
+                counter = counter + 1;
             }
         }
+
         //run();
-        initDocument();
-        //return chicagoStartups;
+        //initDocument();
+        return chicagoStartups;
 
 
     }
