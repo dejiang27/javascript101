@@ -110,7 +110,6 @@
             }
             else {
                 //TODO:: REPLACE [chicagoStartups.reverse()] WITH A FUNCTION CALLED "chicagoStartupsReverse"
-                //chicagoStartups.reverse()
                 chicagoStartupsReverse().forEach( function(startup) {
                     var childDiv = document.createElement('div');
                     var text = document.createTextNode(startup);
@@ -143,12 +142,28 @@
     }
 
     function cleanAndCountCharacters() {
+
         console.log('CLEAN AND COUNT CHARACTERS');
         /*
             TODO: REMOVES ANY SPECIAL CHARACTERS FROM EACH COMPANY NAME AND
               DISPLAYS THE NUMBER OF REMAINING CHARACTERS NEXT TO THE FULL WORD.
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
+
+        var sc = "*@$~!.123456789"
+        var i = chicagoStartups.length;
+        for(var x = 0; x < i; x ++){
+
+            for (var y = 0; y < sc.length; y++){
+                while(chicagoStartups[x].includes(sc[y])){
+                    chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
+                }
+            }
+        }
+        //run();
+        initDocument();
+        //return chicagoStartups;
+
 
     }
     
