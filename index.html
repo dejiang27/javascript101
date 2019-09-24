@@ -157,7 +157,21 @@
 
         for(var x = 0; x < i; x ++){
 
+            //Remove leading whitespaces
+            while(chicagoStartups[x][0] == " "){
+                chicagoStartups[x]= chicagoStartups[x].substring(1);
+            }
+
+            //Remove trailing whitespaces
+            for (var z = 0; z < chicagoStartups[x].length; z++){
+                if(chicagoStartups[x][z] == " " && chicagoStartups[x][z+1] == " "){
+                    chicagoStartups[x] = chicagoStartups[x].slice(0, z)+chicagoStartups[x].slice(z+1);
+                    z --;
+                }
+
+            }
             for (var y = 0; y < sc.length; y++){
+                
                 while(chicagoStartups[x].includes(sc[y])){
                     chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
                 }
@@ -166,8 +180,9 @@
         }
 
         //run();
-        //initDocument();
-        return chicagoStartups;
+        initDocument();
+        initReverse();
+        //return chicagoStartups;
 
 
     }
@@ -200,7 +215,9 @@
 
             3.  
         */
-        
+
+        var ho
+
     }
     
     function run() {
