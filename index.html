@@ -142,7 +142,7 @@
         
     }
 
-    var cleanCheck = false;
+    var cleanChecker = false;
 
     function cleanAndCountCharacters() {
 
@@ -152,7 +152,7 @@
               DISPLAYS THE NUMBER OF REMAINING CHARACTERS NEXT TO THE FULL WORD.
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
-        if(cleanCheck == false){
+        if(cleanChecker == false){
             var sc = "*@$~!.123456789"
             var i = chicagoStartups.length;
             var counter = 0;
@@ -164,13 +164,18 @@
                     chicagoStartups[x]= chicagoStartups[x].substring(1);
                 }
 
-                //Remove trailing whitespaces
+                //Remove connected whitespaces
                 for (var z = 0; z < chicagoStartups[x].length; z++){
                     if(chicagoStartups[x][z] == " " && chicagoStartups[x][z+1] == " "){
                         chicagoStartups[x] = chicagoStartups[x].slice(0, z)+chicagoStartups[x].slice(z+1);
                         z --;
                     }
+                }
 
+                //Remove trailing whitespaces 
+                var strl = chicagoStartups[x].length -1;
+                while(chicagoStartups[x][strl] == " "){
+                    chicagoStartups[x] = chicagoStartups[x].substring(0, strl);
                 }
 
                 //Remove special charactersfrom each company name 
@@ -185,7 +190,9 @@
                 chicagoStartups[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length -1);
             }
 
-            cleanCheck = true;
+            cleanChecker = true;
+            var rootdiv = document.getElementById('rootContainer');
+            rootdiv.remove();
             run();
         }
 
@@ -236,6 +243,8 @@
 
         }else{
             vertical = true;
+            var rootdiv = document.getElementById('rootContainer');
+            rootdiv.remove();
             initDocument();
         }
         initReverse();
