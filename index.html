@@ -154,10 +154,10 @@
               DISPLAYS THE NUMBER OF REMAINING CHARACTERS NEXT TO THE FULL WORD.
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
-        if(cleanChecker == false){
             var sc = "*@$~!.123456789"
             var i = chicagoStartups.length;
             var counter = 0;
+            var nums = [];
 
             for(var x = 0; x < i; x ++){
 
@@ -189,16 +189,26 @@
                 }
 
                 //Add the number of remaining characters next to the full word.
-                chicagoStartups[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length);
+                nums[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length);
             }
 
-            cleanChecker = true;
             var rootdiv = document.getElementById('rootContainer');
             rootdiv.remove();
-            run();
-        }
-
+            //run();
+            var rootDiv = document.createElement('div');
+                rootDiv.id = 'rootContainer';
+                var companyNamesContainer = document.createElement('div');
+                nums.forEach( function(chicagoStartup, index) {
+                var childDiv = document.createElement('div');
+                var text = document.createTextNode(index.toString().concat(' .) ').concat(chicagoStartup));
+                childDiv.appendChild(text);
+                companyNamesContainer.appendChild(childDiv);
+            });
+            rootDiv.appendChild(companyNamesContainer);
+            document.body.appendChild(rootDiv);
+            initReverse();
     }
+
     
     function initReverse() {
         var reverseContainer = document.createElement('div');
