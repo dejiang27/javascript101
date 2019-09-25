@@ -170,13 +170,17 @@
                 }
 
             }
+
+            //Remove special charactersfrom each company name 
             for (var y = 0; y < sc.length; y++){
                 
                 while(chicagoStartups[x].includes(sc[y])){
                     chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
                 }
-                counter = counter + 1;
             }
+
+            //Add the number of remaining characters next to the full word.
+            chicagoStartups[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length -1);
         }
 
         //run();
@@ -200,6 +204,9 @@
         document.getElementById('rootContainer').appendChild(reverseContainer);
     }
 
+    //Add a var to check how the company names displayed
+    var vertical = true;
+
     function toggleDisplay() {
         /*
         TODO: REVIEW THE CODE IN THE PROVIDED REVERSE EXAMPLE, USE JAVASCRIPT TO ADD A CLICKABLE BUTTON 
@@ -215,9 +222,23 @@
 
             3.  
         */
+        if (vertical == true) {
+            vertical = false;
+            clearDocument();
+            var HORIZONTALContainer = document.createElement('span');
+            chicagoStartups.forEach( function(chicagoStartup, index) {
+                var childDiv = document.createElement('spam');
+                var text = document.createTextNode(index.toString().concat(' .) ').concat(chicagoStartup));
+                childDiv.appendChild(text);
+                HORIZONTALContainer.appendChild(childDiv);
+            });
+            document.getElementById('rootContainer').appendChild(HORIZONTALContainer);
 
-        var ho
-
+        }else{
+            vertical = true;
+            initDocument();
+        }
+        initReverse();
     }
     
     function run() {
