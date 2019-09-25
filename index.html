@@ -142,6 +142,8 @@
         
     }
 
+    var cleanCheck = false;
+
     function cleanAndCountCharacters() {
 
         console.log('CLEAN AND COUNT CHARACTERS');
@@ -150,44 +152,42 @@
               DISPLAYS THE NUMBER OF REMAINING CHARACTERS NEXT TO THE FULL WORD.
               DONT FORGET TO REMOVE LEADING AND TRAILING WHITESPACES AS WELL
         */
+        if(cleanCheck == false){
+            var sc = "*@$~!.123456789"
+            var i = chicagoStartups.length;
+            var counter = 0;
 
-        var sc = "*@$~!.123456789"
-        var i = chicagoStartups.length;
-        var counter = 0;
+            for(var x = 0; x < i; x ++){
 
-        for(var x = 0; x < i; x ++){
-
-            //Remove leading whitespaces
-            while(chicagoStartups[x][0] == " "){
-                chicagoStartups[x]= chicagoStartups[x].substring(1);
-            }
-
-            //Remove trailing whitespaces
-            for (var z = 0; z < chicagoStartups[x].length; z++){
-                if(chicagoStartups[x][z] == " " && chicagoStartups[x][z+1] == " "){
-                    chicagoStartups[x] = chicagoStartups[x].slice(0, z)+chicagoStartups[x].slice(z+1);
-                    z --;
+                //Remove leading whitespaces
+                while(chicagoStartups[x][0] == " "){
+                    chicagoStartups[x]= chicagoStartups[x].substring(1);
                 }
 
-            }
+                //Remove trailing whitespaces
+                for (var z = 0; z < chicagoStartups[x].length; z++){
+                    if(chicagoStartups[x][z] == " " && chicagoStartups[x][z+1] == " "){
+                        chicagoStartups[x] = chicagoStartups[x].slice(0, z)+chicagoStartups[x].slice(z+1);
+                        z --;
+                    }
 
-            //Remove special charactersfrom each company name 
-            for (var y = 0; y < sc.length; y++){
+                }
+
+                //Remove special charactersfrom each company name 
+                for (var y = 0; y < sc.length; y++){
                 
-                while(chicagoStartups[x].includes(sc[y])){
-                    chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
+                    while(chicagoStartups[x].includes(sc[y])){
+                        chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
+                    }
                 }
+
+                //Add the number of remaining characters next to the full word.
+                chicagoStartups[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length -1);
             }
 
-            //Add the number of remaining characters next to the full word.
-            chicagoStartups[x] = chicagoStartups[x] +" " + (chicagoStartups[x].length -1);
+            cleanCheck = true;
+            run();
         }
-
-        //run();
-        initDocument();
-        initReverse();
-        //return chicagoStartups;
-
 
     }
     
