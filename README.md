@@ -1,7 +1,5 @@
 # javascript101
  
-#CSC436 HW1
-
 Dejiang Chen
 
 Github URL: https://github.com/dejiang27/javascript101
