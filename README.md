@@ -11,3 +11,5 @@ Github URL: https://github.com/dejiang27/javascript101
 3. Clean and count words: Completed.
 
 4. Display homework instructions in the console: Completed.
+
+5. Apply stylesheet: Completed
