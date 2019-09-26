@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Find these there lines code from the w3schools.com about the Bootstrap. -->
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <h3>Javascript Basics</h3>
     <button onclick="cleanAndCountCharacters()" class="btn btn-success">
         clean and count words
@@ -174,18 +182,18 @@
                     }
                 }
 
-                //Remove trailing whitespaces 
-                var strl = chicagoStartups[x].length -1;
-                while(chicagoStartups[x][strl] == " "){
-                    chicagoStartups[x] = chicagoStartups[x].substring(0, strl);
-                }
-
                 //Remove special charactersfrom each company name 
                 for (var y = 0; y < sc.length; y++){
                 
                     while(chicagoStartups[x].includes(sc[y])){
                         chicagoStartups[x] = chicagoStartups[x].replace(sc[y], '');
                     }
+                }
+
+                //Remove trailing whitespaces 
+                var strl = chicagoStartups[x].length -1;
+                while(chicagoStartups[x][strl] == " "){
+                    chicagoStartups[x] = chicagoStartups[x].substring(0, strl);
                 }
 
                 //Add the number of remaining characters next to the full word.
