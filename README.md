@@ -1,7 +1,4 @@
 # javascript101
- 
-Dejiang Chen
-
 Github URL: https://github.com/dejiang27/javascript101
 
 1. Reverse button: Completed.
